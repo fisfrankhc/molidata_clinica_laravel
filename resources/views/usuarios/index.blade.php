@@ -39,7 +39,7 @@
                                                     </form>
                                                 </div>
                                                 <div class="add-group">
-                                                    <a href="{{ route('usuarionuevo') }}"
+                                                    <a href="{{ route('usuarios.create') }}"
                                                         class="btn btn-primary add-pluss ms-2"><img
                                                             src="{{ asset('/assets/img/icons/plus.svg') }}"
                                                             alt=""></a>
@@ -90,7 +90,7 @@
                                                 </td>
                                                 <td>{{ $usuarioDato->user_telefono }}</td>
                                                 <td>{{ $usuarioDato->sucursalDeUsuario->suc_nombre }}</td>
-                                                @if ($usuarioDato->user_estado === '1')
+                                                @if ($usuarioDato->user_estado == '1')
                                                     <td><button class="custom-badge status-green ">ACTIVO</button></td>
                                                 @else
                                                     <td><button class="custom-badge status-red ">INACTIVO</button></td>

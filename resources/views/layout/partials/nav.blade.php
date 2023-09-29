@@ -11,16 +11,16 @@
                     <a href="#"><span class="menu-side"><img src="{{asset('/assets/img/icons/call-icon-02.svg')}}"
                                 alt=""></span> <span> Usuarios </span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="{{ route('usuarios') }}">Lista de Usuarios</a></li>
-                        <li><a href="{{ route('usuarionuevo') }}">Nuevo Usuario</a></li>
+                        <li><a href="{{ route('usuarios.index') }}">Lista de Usuarios</a></li>
+                        <li><a href="{{ route('usuarios.create') }}">Nuevo Usuario</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
                     <a href="#"><span class="menu-side"><img src="{{asset('/assets/img/icons/menu-icon-03.svg')}}"
                                 alt=""></span> <span> Roles </span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="#">Vista General</a></li>
-                        <li><a href="#">Nuevo Rol</a></li>
+                        <li><a href="{{ route('roles.index') }}">Vista General</a></li>
+                        <li><a href="{{ route('roles.create') }}">Nuevo Rol</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
@@ -37,7 +37,7 @@
                     onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"><span
                         class="menu-side"><img src="{{asset('/assets/img/icons/logout.svg')}}" alt=""></span>
-                    <span>Cerar Sesi&oacute;n</span></a>
+                    <span>Cerrar Sesi&oacute;n</span></a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>

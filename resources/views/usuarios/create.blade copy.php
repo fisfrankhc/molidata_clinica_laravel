@@ -1,4 +1,3 @@
-<?php $page = 'index'; ?>
 @extends('layout.mainlayout')
 @section('content')
     <div class="page-wrapper">
@@ -22,7 +21,7 @@
                 
                     <div class="card">
                         <div class="card-body">
-                            <form action="POST" action="{{ route('usuario.datoregistrar') }}">
+                            <form action="{{route('usuarios.store')}}" action="POST">
                                 @csrf
 
                                 <div class="row">
@@ -96,8 +95,8 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="doctor-submit text-end">
-                                            <button type="submit" class="btn btn-primary submit-form me-2">REGISTRAR USUARIO</button>
-                                            <button type="cancel" class="btn btn-primary cancel-form">Cancel</button>
+                                            <button type="submit" class="btn btn-primary me-2">REGISTRAR USUARIO</button>
+                                            <a href="{{route('usuarios.index')}}" class="btn btn-primary cancel-form">Cancel</a>
                                         </div>
                                     </div>
                                 </div>

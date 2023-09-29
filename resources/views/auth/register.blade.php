@@ -57,17 +57,6 @@
                                             @enderror
                                         </div>
 
-{{--                                         <div class="form-group">
-                                            <label> Tel&eacute;fono celular </label>
-                                            <input id="user_telefono" type="number"
-                                                class="form-control" name="user_telefono" autofocus>
-                                            @error('user_telefono')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div> --}}
-
                                         <div class="form-group">
                                             <label >Email <span class="login-danger">*</span></label>
                                             <input id="email" type="email"

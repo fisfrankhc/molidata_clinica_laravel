@@ -25,13 +25,15 @@ return new class extends Migration
             $table->foreign('rol_id')
                 ->references('id')
                 ->on('roles')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('set null');
 
             $table->unsignedBigInteger('sucursal_id')->default('1')->nullable();
             $table->foreign('sucursal_id')
                 ->references('id')
                 ->on('sucursales')
-                ->onUpdate('cascade');
+                ->onUpdate('cascade')
+                ->onDelete('set null');
 
 
             $table->integer('user_estado')->default('1');

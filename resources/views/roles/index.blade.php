@@ -68,7 +68,7 @@
                             <div class="table-responsive">
                                 <table class="table border-0 custom-table comman-table datatable mb-0">
                                     <thead>
-                                        <tr>    
+                                        <tr>
                                             <th>#</th>
                                             <th>ROL</th>
                                             <th>DESCRIPCI&Oacute;N</th>
@@ -76,7 +76,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($Roles as $Rol)
+                                        @foreach ($Roles as $Rol)
                                             <tr>
                                                 <td>{{ $Rol->id }}</td>
                                                 <td>{{ $Rol->rol_name }}</td>
@@ -87,23 +87,22 @@
                                                             data-bs-toggle="dropdown" aria-expanded="false"><i
                                                                 class="fa fa-ellipsis-v"></i></a>
                                                         <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="{{route('roles.edit', $Rol)}}"><i
+
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('roles.edit', $Rol) }}"><i
                                                                     class="fa-solid fa-pen-to-square m-r-5"></i> EDITAR</a>
-                                                            <a class="dropdown-item" href="{{route('roles.destroy', $Rol->id)}}" data-bs-toggle="modal"
-                                                                data-bs-target="#delete_patient" onclick="event.preventDefault();
-                                                                document.getElementById('eliminar-form').submit();"><i
-                                                                    class="fa fa-trash-alt m-r-5"></i> ELIMINAR</a>
-                                                                    <form id="eliminar-form" action="{{route('roles.destroy', $Rol->id)}}" method="POST" class="d-none">
-                                                                        @csrf
-                                                                        @method('delete')
-                                                                    </form>
+
+                                                            <form method="POST" action="{{route('roles.destroy', $Rol)}}">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button class="dropdown-item" type="submit"><i
+                                                                    class="fa fa-trash-alt m-r-5"></i> ELIMINAR</button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
-                                        @empty
-                                            <td rowspan="7">SIN DATOS</td>
-                                        @endforelse
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -27,8 +27,8 @@
                     <a href="#"><span class="menu-side"><img src="{{asset('/assets/img/icons/call-icon-03.svg')}}"
                                 alt=""></span> <span> Sucursales </span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="#">Vista General</a></li>
-                        <li><a href="#">Nueva Sucursal</a></li>
+                        <li><a href="{{ route('sucursales.index') }}">Vista General</a></li>
+                        <li><a href="{{ route('sucursales.index') }}">Nueva Sucursal</a></li>
                     </ul>
                 </li>
             </ul>

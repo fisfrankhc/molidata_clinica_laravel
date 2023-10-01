@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\SucursalesController;
+
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -31,6 +33,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('usuarios', UsuarioController::class);
 
 Route::resource('roles', RolesController::class);
+
+Route::resource('sucursales', SucursalesController::class);
 /* ('/configuracion/usuarios/nuevo', [UsuarioController::class, 'store'])->name('usuariocreate'); */
 
 /* Route::get('/configuracion/usuarios/{usuarioVistaId}', [UsuarioController::class, 'show']); */

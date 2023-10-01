@@ -10,7 +10,7 @@
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="departments.html">HOME </a></li>
                             <li class="breadcrumb-item"><i class="feather-chevron-right"></i></li>
-                            <li class="breadcrumb-item active">Lista de usuarios</li>
+                            <li class="breadcrumb-item active">Lista de Sucursales</li>
                         </ul>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <div class="doctor-table-blk">
-                                            <h3>USUARIOS DEL SISTEMA</h3>
+                                            <h3>SUCURSALES DEL SISTEMA</h3>
                                             <div class="doctor-search-blk">
                                                 <div class="top-nav-search table-search-blk">
                                                     <form>
@@ -39,7 +39,7 @@
                                                     </form>
                                                 </div>
                                                 <div class="add-group">
-                                                    <a href="{{ route('usuarios.create') }}"
+                                                    <a href="{{ route('sucursales.create') }}"
                                                         class="btn btn-primary add-pluss ms-2"><img
                                                             src="{{ asset('/assets/img/icons/plus.svg') }}"
                                                             alt=""></a>
@@ -70,32 +70,17 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>ROL</th>
-                                            <th>NOMBRE COMPLETO</th>
-                                            <th>TEL&Eacute;FONO</th>
                                             <th>SUCURSAL</th>
-                                            <th>ESTADO</th>
+                                            <th>DESCRIPCI&Oacute;N</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse ($listaDeUsuarios as $usuarioDato)
+                                        @foreach ($Sucursales as $Sucursale)
                                             <tr>
-                                                <td>{{ $usuarioDato->id }}</td>
-                                                <td>{{ $usuarioDato->rolDeUsuario->rol_name }}</td>
-                                                <td class="profile-image"><a href="profile.html"><img width="28"
-                                                            height="28"
-                                                            src="{{ asset('/assets/img/profiles/avatar-01.jpg') }}"
-                                                            class="rounded-circle m-r-5" alt="">
-                                                        {{ $usuarioDato->name }}</a>
-                                                </td>
-                                                <td>{{ $usuarioDato->user_telefono }}</td>
-                                                <td>{{ $usuarioDato->sucursalDeUsuario->suc_nombre }}</td>
-                                                @if ($usuarioDato->user_estado == '1')
-                                                    <td><button class="custom-badge status-green ">ACTIVO</button></td>
-                                                @else
-                                                    <td><button class="custom-badge status-red ">INACTIVO</button></td>
-                                                @endif
+                                                <td>{{ $Sucursale->id }}</td>
+                                                <td>{{ $Sucursale->suc_nombre }}</td>
+                                                <td>{{ $Sucursale->suc_direccion }}</td>
                                                 <td class="text-end">
                                                     <div class="dropdown dropdown-action">
                                                         <a href="#" class="action-icon dropdown-toggle"
@@ -103,23 +88,21 @@
                                                                 class="fa fa-ellipsis-v"></i></a>
                                                         <div class="dropdown-menu dropdown-menu-end">
 
-                                                            <a class="dropdown-item" href="{{ route('usuarios.edit', $usuarioDato) }}"><i
-                                                                    class="fa-solid fa-pen-to-square m-r-5"></i> Edit</a>
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('sucursales.edit', $Sucursale) }}"><i
+                                                                    class="fa-solid fa-pen-to-square m-r-5"></i> EDITAR</a>
 
-                                                            <form method="POST"
-                                                                action="{{ route('usuarios.destroy', $usuarioDato) }}">
+                                                            <form method="POST" action="{{route('sucursales.destroy', $Sucursale)}}">
                                                                 @csrf
                                                                 @method('delete')
                                                                 <button class="dropdown-item" type="submit"><i
-                                                                        class="fa fa-trash-alt m-r-5"></i> ELIMINAR</button>
+                                                                    class="fa fa-trash-alt m-r-5"></i> ELIMINAR</button>
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
-                                        @empty
-                                            <td rowspan="7">SIN DATOS</td>
-                                        @endforelse
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
